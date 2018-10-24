@@ -149,6 +149,8 @@
             (company-auctex-macros
              company-auctex-symbols
              company-auctex-environments)
+            ;; rw's 
+            company-dabbrev
             :modes LaTeX-mode)))
 
 (defun latex/post-init-evil-matchit ()
@@ -190,7 +192,11 @@
   (add-hook 'latex-mode-local-vars-hook #'spacemacs/ggtags-mode-enable))
 
 (defun latex/post-init-smartparens ()
-  (add-hook 'LaTeX-mode-hook 'smartparens-mode))
+  (add-hook 'LaTeX-mode-hook 'smartparens-mode)
+
+  ;; rw's config
+  (add-hook 'LaTeX-mode-hook 'smartparens-strict-mode)
+  )
 
 (defun latex/post-init-typo ()
   ;; Typo mode isn't useful for LaTeX.

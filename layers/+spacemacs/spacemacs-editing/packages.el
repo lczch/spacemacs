@@ -349,7 +349,14 @@
                '(:add (spacemacs/smartparens-pair-newline-and-indent "RET")))
       (when dotspacemacs-smart-closing-parenthesis
         (define-key evil-insert-state-map ")"
-          'spacemacs/smart-closing-parenthesis)))))
+          'spacemacs/smart-closing-parenthesis)))
+
+    ;; rw's config
+    (progn
+      (sp-use-smartparens-bindings)
+      (sp-local-pair 'LaTeX-mode "'" nil :actions nil)
+      (sp-local-pair 'LaTeX-mode "`" nil :actions nil))
+    ))
 
 (defun spacemacs-editing/init-spacemacs-whitespace-cleanup ()
   (use-package spacemacs-whitespace-cleanup
