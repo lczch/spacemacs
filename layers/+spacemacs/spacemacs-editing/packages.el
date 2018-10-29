@@ -354,8 +354,11 @@
     ;; rw's config
     (progn
       (sp-use-smartparens-bindings)
-      (sp-local-pair 'LaTeX-mode "'" nil :actions nil)
-      (sp-local-pair 'LaTeX-mode "`" nil :actions nil))
+      (setq sp-autoskip-closing-pair 'always)
+      (sp-local-pair 'LaTeX-mode "'" "'" :actions nil)
+      (sp-local-pair 'LaTeX-mode "`" "'" :actions nil)
+      (sp-local-pair 'LaTeX-mode "`" "`" :actions nil)
+      )
     ))
 
 (defun spacemacs-editing/init-spacemacs-whitespace-cleanup ()

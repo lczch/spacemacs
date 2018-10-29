@@ -144,13 +144,20 @@
     :defer t
     :init (spacemacs|add-company-backends
             :backends
-            company-auctex-labels
-            company-auctex-bibs
-            (company-auctex-macros
+            ;; company-auctex-labels
+            ;; company-auctex-bibs
+            ;; (company-auctex-macros
+            ;;  company-auctex-symbols
+            ;;  company-auctex-environments
+            ;;  )
+
+            ;; rw
+            (company-math-symbols-latex
+             ;; company-math-symbols-unicode
+             company-auctex-macros
              company-auctex-symbols
-             company-auctex-environments)
-            ;; rw's 
-            company-dabbrev
+             company-auctex-environments
+             company-dabbrev)
             :modes LaTeX-mode)))
 
 (defun latex/post-init-evil-matchit ()
@@ -194,8 +201,10 @@
 (defun latex/post-init-smartparens ()
   (add-hook 'LaTeX-mode-hook 'smartparens-mode)
 
+
   ;; rw's config
-  (add-hook 'LaTeX-mode-hook 'smartparens-strict-mode)
+  (add-hook 'LaTeX-mode-hook '(lambda ()
+                                (smartparens-strict-mode 1)))
   )
 
 (defun latex/post-init-typo ()

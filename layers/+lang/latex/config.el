@@ -16,7 +16,8 @@
 (defvar latex-build-command (if (executable-find "latexmk") "LatexMk" "LaTeX")
   "The default command to use with `SPC m b'")
 
-(defvar latex-enable-auto-fill t
+;; rw: the original is t, I want nil.
+(defvar latex-enable-auto-fill nil
   "Whether to use auto-fill-mode or not in tex files.")
 
 (defvar latex-enable-folding nil
